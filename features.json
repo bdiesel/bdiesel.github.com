@@ -5,7 +5,7 @@ var data = {
         "type": "Feature",
         "geometry": { 
             "type": "Point", 
-            "coordinates": [71.097801,42.368149, 0.000000]
+            "coordinates": [-71.097801,42.368149, 0.000000]
         }, 
         "properties": {
             "name" : "Bondir Restaurant"

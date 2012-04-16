@@ -6,51 +6,112 @@
 
     <script src="leaflet.js"></script>
     <script src="wax.leaf.min.js"></script>
-    
-
-    
-    
   </head>
+  <style>
+  body{
+     font-family: DroidSans, Arial, sans-serif;
+     font-size: 11px;
+  }
+   #poi{
+      color: #888;
+      background: rgba(255, 255, 255, 0.75); 
+      width: 300px;
+      position: absolute; 
+      bottom: 20px;
+      left: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+   }
+   
+   h2{
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 4px;
+   }
+   
+   ol{
+      margin: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+   }
+   
+   li{
+      margin-bottom: 3px;
+   }
+   
+   li:hover{
+      background: white;
+   }
+  
+  </style>
   <body>
-    <div id="mapbox" style="width: 100%; height: 100%"></div>
+    <div id="map" style="width: 100%; height: 100%"></div>
+      
+   <div id="poi">
+      <h2>Local Amenities</h2>   
+      <ol>
+         <li>Bondir Restaurant</li>
+         <li>Oleana</li>
+         <li>Lord Hobo</li>
+         <li>East by Northeast</li>
+         <li>Atwood&#39;s Tavern</li>
+         <li>All Star Sandwich Bar</li>
+         <li>East Coast Grill</li>
+         <li>1369 Coffee House</li>
+         <li>Central Square Theater</li>
+         <li>Emma&#39;s Pizza</li>
+         <li>Hungry Mother</li>
+         <li>Kendall Square Cinema</li>
+         <li>The Friendly Toast</li>
+         <li>Cambridge Brewing Company</li>
+         <li>Christina&#39;s Homemade Ice Cream</li>
+         <li>Whole Foods Market</li>
+         <li>Stellabella Toys</li>
+         <li>King Open School</li>
+         <li>Cambridgeport School</li>
+         <li>Fletcher/Maynard Academy</li>
+         <li>Massachusetts Institute of Technology</li>
+         <li>Central Square T Station - Red Line</li>
+         <li>Kendall/MIT Station - Red Line</li>
+      </ol>
+   </div>   
     <script type="text/javascript">
+      var map = new L.Map('map');
+      var lat = 42.370488;
+      var lng = -71.095582;
+      var url = 'http://api.tiles.mapbox.com/v3/mapbox.mapbox-streets.jsonp';
 
-    // Define the map to use from MapBox
-    // This is the TileJSON endpoint copied from the embed button on your map
-    var url = 'http://api.tiles.mapbox.com/v3/mapbox.mapbox-streets.jsonp';
+      // Get metadata about the map from MapBox
+      wax.tilejson(url, function(tilejson) {
+         map.setView(new L.LatLng( lat, lng), 15);
+         map.addLayer(new wax.leaf.connector(tilejson));
+      });
+    
+      var MarkerIcon = L.Icon.extend({
+         iconUrl: 'homeMarker.png',
+         shadowUrl: 'markerShadow.png',
+         iconSize: new L.Point(38, 91),
+         shadowSize: new L.Point(68, 95),
+         iconAnchor: new L.Point(22, 94),
+         popupAnchor: new L.Point(-3, -76)
+      });
 
-    // Make a new Leaflet map in your container div
-    var map = new L.Map('mapbox')  // container's id="mapbox"
-
-    // Center the map on Cambridge, MA, at zoom 15
-    .setView(new L.LatLng( 42.3603, -71.0893), 15);
-
-    // Get metadata about the map from MapBox
-    wax.tilejson(url, function(tilejson) {
-        // Add MapBox Streets as a base layer
-        map.addLayer(new wax.leaf.connector(tilejson));
-    });
+	   var markerIcon = new MarkerIcon();
+	   var marker1 = new L.Marker(new L.LatLng(lat, lng), {icon: markerIcon});
+	   map.addLayer(marker1);
     </script>
     
     
     <script src="features.json"></script>
     <script type="text/javascript">
-    // Define a GeoJSON data layer
-    var geojsonLayer = new L.GeoJSON(data);
-
-    // Display the name property on click
-    geojsonLayer.on('featureparse', function (e) {
-        if (e.properties && e.properties.name){
+      var geojsonLayer = new L.GeoJSON(data);
+      geojsonLayer.on('featureparse', function (e) {
+         if (e.properties && e.properties.name){
             e.layer.bindPopup(e.properties.name);
-        }
-    });
-
-    // Populate our geojson layer with data
-    geojsonLayer.addGeoJSON(data);
-
-    // Add the GeoJSON layer
-    map.addLayer(geojsonLayer);
-    </script>
-    
+         }
+      });
+      geojsonLayer.addGeoJSON(data);
+      map.addLayer(geojsonLayer);
+   </script> 
   </body>
 </html>
