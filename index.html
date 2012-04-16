@@ -106,7 +106,6 @@
 	   var marker1 = new L.Marker(new L.LatLng(lat, lng), {icon: markerIcon});
 	   map.addLayer(marker1);
 
-      
       var Restaurant = L.Icon.extend({
 			iconUrl: 'restaurant-24.png',
 			shadowUrl: null,
@@ -142,7 +141,6 @@
 			iconAnchor: new L.Point(14, 37),
 			popupAnchor: new L.Point(2, -32)
 		});
-      
       
       var Theater = L.Icon.extend({
 			iconUrl: 'theatre-24.png',
@@ -186,7 +184,7 @@
          if (e.properties && e.properties.name){
             e.layer.bindPopup(e.properties.name);
          }
-         if(e.properties && e.properties.type){
+         if(e.properties && e.properties.type ){
             var typeOf = e.properties.type
             switch (true){
                case (typeOf == "Restaurant"):
@@ -210,7 +208,7 @@
                case (typeOf == "Public Transport"):
                   e.layer.setIcon(new PublicTrans());
                break;
-         }
+            }
          }
       });
       geojsonLayer.addGeoJSON(data);
