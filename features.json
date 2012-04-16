@@ -8,7 +8,8 @@ var data = {
             "coordinates": [-71.097801,42.368149, 0.000000]
         }, 
         "properties": {
-            "name" : "Bondir Restaurant"
+            "name" : "Bondir Restaurant",
+				"type" : "Restaurant"
         }
     },
     { 
@@ -18,7 +19,8 @@ var data = {
             "coordinates": [-71.097023,42.370571, 0.000000]
         }, 
         "properties": {
-            "name" : "Oleana"
+            "name" : "Oleana",
+				"type" : "Restaurant"
         }
     },
     { 
@@ -28,7 +30,8 @@ var data = {
             "coordinates": [-71.095009,42.368797,0.000000]
         }, 
         "properties": {
-            "name" : "Lord Hobo"
+            "name" : "Lord Hobo",
+				"type" : "Bar"
         }
     },
     { 
@@ -38,7 +41,8 @@ var data = {
             "coordinates": [-71.096077,42.373024,0.000000]
         }, 
         "properties": {
-            "name" : "East by Northeast"
+            "name" : "East by Northeast",
+				"type" : "Restaurant"
         }
     },
     { 
@@ -48,7 +52,8 @@ var data = {
             "coordinates": [-71.091484,42.372643,0.000000]
         }, 
         "properties": {
-            "name" : "Atwoods Tavern"
+            "name" : "Atwoods Tavern",
+				"type" : "Bar"
         }
     },
     { 
@@ -58,7 +63,8 @@ var data = {
             "coordinates": [-71.098198,42.373486,0.000000]
         }, 
         "properties": {
-            "name" : "All Star Sandwich Bar"
+            "name" : "All Star Sandwich Bar",
+				"type" : "Restaurant"
         }
     },
     { 
@@ -68,7 +74,8 @@ var data = {
             "coordinates": [-71.098640,42.373528,0.000000]
         }, 
         "properties": {
-            "name" : "East Coast Grill"
+            "name" : "East Coast Grill",
+				"type" : "Restaurant"
         }
     },
     { 
@@ -78,7 +85,8 @@ var data = {
             "coordinates": [-71.100380,42.373734,0.000000]
         }, 
         "properties": {
-            "name" : "1369 Coffee House"
+            "name" : "1369 Coffee House",
+				"type" : "Restaurant"
         }
     },
     { 
@@ -88,7 +96,8 @@ var data = {
             "coordinates": [-71.100914,42.363743,0.000000]
         }, 
         "properties": {
-            "name" : "Central Square Theater"
+            "name" : "Central Square Theater",
+				"type" : "Theater"
         }
     },
     { 
@@ -98,7 +107,8 @@ var data = {
             "coordinates": [-71.092163, 42.366474]
         }, 
         "properties": {
-            "name" : "Emmas Pizza"
+            "name" : "Emmas Pizza",
+				"type" : "Restaurant"
         }
     },
     { 
@@ -108,7 +118,8 @@ var data = {
             "coordinates": [-71.091026, 42.367584]
         }, 
         "properties": {
-            "name" : "Hungry Mother"
+            "name" : "Hungry Mother",
+				"type" : "Restaurant"
         }
     },
     { 
@@ -118,7 +129,8 @@ var data = {
             "coordinates": [-71.090012, 42.367954]
         }, 
         "properties": {
-            "name" : "Kendall Square Cinema"
+            "name" : "Kendall Square Cinema",
+				"type" : "Theater"
         }
     },
     { 
@@ -128,7 +140,8 @@ var data = {
             "coordinates": [-71.090729, 42.366325]
         }, 
         "properties": {
-            "name" : "The Friendly Toast"
+            "name" : "The Friendly Toast",
+				"type" : "Bar"
         }
     },
     { 
@@ -138,7 +151,8 @@ var data = {
             "coordinates": [-71.091209, 42.366184]
         }, 
         "properties": {
-            "name" : "Cambridge Brewing Company"
+            "name" : "Cambridge Brewing Company",
+				"type" : "Bar"
         }
     },
     { 
@@ -148,7 +162,8 @@ var data = {
             "coordinates": [-71.098373, 42.373497]
         }, 
         "properties": {
-            "name" : "Christinas Homemade Ice Cream"
+            "name" : "Christinas Homemade Ice Cream",
+    			"type" : "Restaurant"
         }
     },
     { 
@@ -158,7 +173,8 @@ var data = {
             "coordinates": [-71.102165, 42.367943]
         }, 
         "properties": {
-            "name" : "Whole Foods Market"
+            "name" : "Whole Foods Market",
+				"type" : "Market"
         }
     },
     { 
@@ -168,7 +184,8 @@ var data = {
             "coordinates": [-71.100121, 42.373558]
         }, 
         "properties": {
-            "name" : "Stellabella Toys"
+            "name" : "Stellabella Toys",
+				"type" : "Shopping"
         }
     },
     { 
@@ -178,7 +195,8 @@ var data = {
             "coordinates": [-71.091629,42.371998]
         }, 
         "properties": {
-            "name" : "King Open School"
+            "name" : "King Open School",
+				"type" : "School"
         }
     },
     { 
@@ -188,7 +206,8 @@ var data = {
             "coordinates": [-71.097603,42.369507]
         }, 
         "properties": {
-            "name" : "Cambridgeport School"
+            "name" : "Cambridgeport School",
+				"type" : "School"
         }
     },
     { 
@@ -198,7 +217,9 @@ var data = {
             "coordinates": [-71.095863,42.367172,0.000000]
         }, 
         "properties": {
-            "name" : "Fletcher/Maynard Academy"
+            "name" : "Fletcher/Maynard Academy",
+				"type" : "School"
+
         }
     },
     { 
@@ -208,7 +229,8 @@ var data = {
             "coordinates": [-71.095833,42.359924,0.000000]
         }, 
         "properties": {
-            "name" : "Massachusetts Institute of Technology"
+            "name" : "Massachusetts Institute of Technology",
+				"type" : "School"
         }
     },
     { 
@@ -218,7 +240,8 @@ var data = {
             "coordinates": [-71.103806,42.365486,0.000000]
         }, 
         "properties": {
-            "name" : "Central Square T Station - Red Line"
+            "name" : "Central Square T Station - Red Line",
+				"type" : "Public Transport"
         }
     },
     { 
@@ -228,7 +251,8 @@ var data = {
             "coordinates": [-71.086174,42.362492,0.000000]
         }, 
         "properties": {
-            "name" : "Kendall/MIT Station - Red Line"
+            "name" : "Kendall/MIT Station - Red Line",
+				"type" : "Public Transport"
         }
     }
     ]

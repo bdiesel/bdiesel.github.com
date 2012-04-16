@@ -23,6 +23,10 @@
       border-radius: 6px;
    }
    
+   #poi:hover{
+       background: white;
+   }   
+   
    h2{
       text-align: center;
       font-size: 14px;
@@ -76,6 +80,7 @@
          <li>Kendall/MIT Station - Red Line</li>
       </ol>
    </div>   
+    <script src="features.json"></script>
     <script type="text/javascript">
       var map = new L.Map('map');
       var lat = 42.370488;
@@ -96,19 +101,116 @@
          iconAnchor: new L.Point(22, 94),
          popupAnchor: new L.Point(-3, -76)
       });
-
+      
 	   var markerIcon = new MarkerIcon();
 	   var marker1 = new L.Marker(new L.LatLng(lat, lng), {icon: markerIcon});
 	   map.addLayer(marker1);
-    </script>
-    
-    
-    <script src="features.json"></script>
-    <script type="text/javascript">
+
+      
+      var Restaurant = L.Icon.extend({
+			iconUrl: 'restaurant-24.png',
+			shadowUrl: null,
+			iconSize: new L.Point(32, 37),
+			shadowSize: null,
+			iconAnchor: new L.Point(14, 37),
+			popupAnchor: new L.Point(2, -32)
+		});
+		
+		var Bar = L.Icon.extend({
+			iconUrl: 'bar-24.png',
+			shadowUrl: null,
+			iconSize: new L.Point(32, 37),
+			shadowSize: null,
+			iconAnchor: new L.Point(14, 37),
+			popupAnchor: new L.Point(2, -32)
+		});
+		
+      var Market = L.Icon.extend({
+			iconUrl: 'grocery-24.png',
+			shadowUrl: null,
+			iconSize: new L.Point(32, 37),
+			shadowSize: null,
+			iconAnchor: new L.Point(14, 37),
+			popupAnchor: new L.Point(2, -32)
+		});
+		
+		var Market = L.Icon.extend({
+			iconUrl: 'grocery-24.png',
+			shadowUrl: null,
+			iconSize: new L.Point(32, 37),
+			shadowSize: null,
+			iconAnchor: new L.Point(14, 37),
+			popupAnchor: new L.Point(2, -32)
+		});
+      
+      
+      var Theater = L.Icon.extend({
+			iconUrl: 'theatre-24.png',
+			shadowUrl: null,
+			iconSize: new L.Point(32, 37),
+			shadowSize: null,
+			iconAnchor: new L.Point(14, 37),
+			popupAnchor: new L.Point(2, -32)
+		});
+		
+		var School = L.Icon.extend({
+			iconUrl: 'school-24.png',
+			shadowUrl: null,
+			iconSize: new L.Point(32, 37),
+			shadowSize: null,
+			iconAnchor: new L.Point(14, 37),
+			popupAnchor: new L.Point(2, -32)
+		});
+		
+		var Shopping = L.Icon.extend({
+			iconUrl: 'shop-24.png',
+			shadowUrl: null,
+			iconSize: new L.Point(32, 37),
+			shadowSize: null,
+			iconAnchor: new L.Point(14, 37),
+			popupAnchor: new L.Point(2, -32)
+		});
+		
+		var PublicTrans = L.Icon.extend({
+			iconUrl: 'rail-underground-24.png',
+			shadowUrl: null,
+			iconSize: new L.Point(32, 37),
+			shadowSize: null,
+			iconAnchor: new L.Point(14, 37),
+			popupAnchor: new L.Point(2, -32)
+		});
+      
+      
       var geojsonLayer = new L.GeoJSON(data);
       geojsonLayer.on('featureparse', function (e) {
          if (e.properties && e.properties.name){
             e.layer.bindPopup(e.properties.name);
+         }
+         if(e.properties && e.properties.type){
+            var typeOf = e.properties.type
+            switch (true){
+               case (typeOf == "Restaurant"):
+                   e.layer.setIcon(new Restaurant());
+               break;
+               case (typeOf == "Bar"):
+                  e.layer.setIcon(new Bar());
+               break;
+               case (typeOf == "Market"):
+                  e.layer.setIcon(new Market());
+               break;
+               case (typeOf == "Theater"):
+                   e.layer.setIcon(new Theater());
+                break;
+               case (typeOf == "School"):
+                  e.layer.setIcon(new School());
+               break;
+               case (typeOf == "Shopping"):
+                  e.layer.setIcon(new Shopping());
+               break;
+               case (typeOf == "Public Transport"):
+                  e.layer.setIcon(new PublicTrans());
+               break;
+         }
          }
       });
       geojsonLayer.addGeoJSON(data);
